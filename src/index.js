@@ -1,19 +1,24 @@
-import fastify from "fastify";
+// import fastify from "fastify";
+const fastify = require("fastify")
 
 const app = fastify({
     logger: true,
 })
 
 
-app.get("/home", async (req, res) => {
-    return {mess: "Ok with fastify"}
+app.get("/ping", async (req, res) => {
+    return {mess: "Ping Received Ok"}
 })
 
 
-try{
-    await app.listen({port: 3000})
-    console.log("Server Started")
-}
-catch(error){
-    console.log(error)
-}
+app.listen({port:3000}, () => {
+    console.log("Server started at port no 3000")
+})
+
+// try{
+//     await app.listen({port: 3000})
+//     console.log("Server Started")
+// }
+// catch(error){
+//     console.log(error)
+// }
