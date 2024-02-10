@@ -1,6 +1,8 @@
 // import fastify from "fastify";
 const fastify = require("fastify")
 
+const serverConfig = require("./config/server_config")
+
 const app = fastify({
     logger: true,
 })
@@ -12,7 +14,7 @@ app.get("/ping", async (req, res) => {
 
 
 app.listen({port:3000}, () => {
-    console.log("Server started at port no 3000")
+    console.log(`Server started at port no ${serverConfig.PORT}`)
 })
 
 app.route({
