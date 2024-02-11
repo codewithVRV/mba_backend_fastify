@@ -1,9 +1,8 @@
+const { ping } = require("../../controllers/ping_controller");
 
 function v1Routes (fastify, options, done) {
 
-    fastify.get("/home", (req, res) => {
-        return {mess: "routing done for v1"}
-    })
+    fastify.get("/ping", ping)
 
     done()
 }
