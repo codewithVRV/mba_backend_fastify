@@ -18,13 +18,13 @@ function myPlugin1 (fastify, options, done) {
 
 function myPlugin2 (fastify, options, done) {
     console.log("this is plugin 2")
-    console.log(options)
+    fastify.register(myPlugin1, {prefix: "/v1"})
+
     done()
 }
 
 
-app.register(myPlugin1, {name: "vishnu", prefix: "/api"})
-app.register(myPlugin2, {name: "neha"})
+app.register(myPlugin2, {name: "vishnu", prefix: "/api"})
 
 
 app.get("/ping", async (req, res) => {
